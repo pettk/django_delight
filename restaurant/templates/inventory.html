@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>
+        Inventory
+    </title>
+{% endblock %}
+
+{% block content %}
+  <table class="table table-dark table-striped">
+      <h2 class="text-center">Inventory</h2>
+      <button class="btn btn-success"><a href="update_inventory " style="color: white; text-decoration: none;">Add</a></button>
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Price per unit</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+    </thead>
+      <tbody>
+        {% for i in all_inventory %}
+          <tr>
+            <th scope="row"></td>
+            <td>{{i.name}}</td>
+            <td>{{i.quantity}}</td>
+            <td>{{i.price_per_unit}}</td>
+            <td><a href="update_inventory/{{i.id}}" class="btn btn-warning">Change</a></td>
+            <td><a href="delete/{{i.id}}" class="btn btn-danger" onclick="return confirm('Please comfirm to delete')">Delete</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+{% endblock %}
